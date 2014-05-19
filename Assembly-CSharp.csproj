@@ -46,6 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BulletFlight.cs" />
+     <Compile Include="Assets\Scripts\CannonAiming.cs" />
+     <Compile Include="Assets\Scripts\CannonFire.cs" />
      <Compile Include="Assets\Scripts\CloudRoll.cs" />
      <Compile Include="Assets\Scripts\TankMovement.cs" />
      <None Include="Assets\Shaders\AlphaSelfIllum2.shader" />
