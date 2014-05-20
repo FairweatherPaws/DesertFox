@@ -31,9 +31,11 @@ public class BulletFlight : MonoBehaviour {
 		if (collDetect) {
 
 			unitStats Script1 = collDetect.GetComponent<unitStats>();
+			float dealt = Script1.myHP;
 			Script1.myHP -= damage;
 
-			Destroy(this.gameObject);
+			if (Script1.myHP >= 0) {Destroy(this.gameObject);}
+			else {damage -= dealt; this.rigidbody.AddForce(200,0,0);}
 
 			
 			// damage dealing here

@@ -40,4 +40,15 @@ public class TankMovement : MonoBehaviour {
 		transform.Translate(horizV/50, 0, 0, Space.World);
 
 	}
+	void OnTriggerEnter (Collider collDetect) {
+		
+		if (collDetect) {
+			
+			unitStats Script1 = collDetect.GetComponent<unitStats>();
+			Script1.myHP -= Mathf.Abs(horizV*10);
+			collDetect = null;
+			// damage dealing here
+			
+		}
+	}
 }

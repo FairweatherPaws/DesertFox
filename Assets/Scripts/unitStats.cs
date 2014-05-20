@@ -13,7 +13,7 @@ public class unitStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (myHP < 0) {Destroy(this.gameObject);}
+		if (myHP <= 0) {Destroy(this.gameObject);}
 	
 	}
 }
