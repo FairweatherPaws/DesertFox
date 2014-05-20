@@ -1,25 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CannonFire : MonoBehaviour {
-
+public class MachineGunFire : MonoBehaviour {
+	
 	public float startValue, angle, angleLimit, angleLimitMod;
 	public Transform bullet;
 	public Camera mainCamera;
-	public GameObject panzer, explosionBurstOuter, explosionBurstCore;
-
+	public GameObject panzer, explosionBurstOuter;
+	
 	// Use this for initialization
 	void Start () {
 		angleLimit = 20;
-	
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		startValue -= Time.deltaTime;
-		if (Input.GetMouseButton(0)) 
+		if (Input.GetMouseButton(1)) 
 		{
-
+			
 			if (startValue < 0) 
 			{
 				if (panzer.transform.rotation.eulerAngles.z < 90 && panzer.transform.rotation.eulerAngles.z > -90) {angleLimitMod = panzer.transform.rotation.eulerAngles.z;}
@@ -35,24 +35,19 @@ public class CannonFire : MonoBehaviour {
 				if (angle > angleLimit + angleLimitMod) {angle = angleLimit + angleLimitMod; }
 				if (angle < angleLimitMod) {angle = angleLimitMod;}
 
+				angle += Random.Range (-5, 5);
+
 				GameObject newBullet;
 				newBullet = Instantiate(bullet, this.transform.position, Quaternion.Euler(new Vector3(0, 0, angle))) as GameObject;
-//				BulletFlight Script1 = newBullet.GetComponent<BulletFlight>();
-//				Script1.angle = angle;
 
-				Vector3 burstSpawnLoc = this.transform.position;
-				burstSpawnLoc.z += 0.5f;
 				GameObject boomOne;
-				GameObject boomTwo;
 				boomOne = Instantiate (explosionBurstOuter, this.transform.position, Quaternion.Euler(new Vector3(-angle, 90, 0))) as GameObject;
-				boomTwo = Instantiate (explosionBurstCore, burstSpawnLoc, Quaternion.Euler(new Vector3(-angle, 90, 0))) as GameObject;
-
-				TankMovement Script1 = panzer.GetComponent<TankMovement>();
-				Script1.horizV -= 1f;
 				
-				startValue = 1f;
+				TankMovement Script1 = panzer.GetComponent<TankMovement>();
+				
+				startValue = 0.05f;
 			}
 		}
-
+		
 	}
 }
