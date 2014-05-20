@@ -42,7 +42,8 @@ public class MachineGunFire : MonoBehaviour {
 
 				GameObject boomOne;
 				boomOne = Instantiate (explosionBurstOuter, this.transform.position, Quaternion.Euler(new Vector3(-angle, 90, 0))) as GameObject;
-				
+				boomOne.transform.parent = transform;
+
 				TankMovement Script1 = panzer.GetComponent<TankMovement>();
 				
 				startValue = 0.05f;

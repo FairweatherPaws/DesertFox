@@ -51,9 +51,12 @@
      <Compile Include="Assets\Scripts\CannonBlastCleanup.cs" />
      <Compile Include="Assets\Scripts\CannonFire.cs" />
      <Compile Include="Assets\Scripts\CloudRoll.cs" />
+     <Compile Include="Assets\Scripts\DudeMovement.cs" />
+     <Compile Include="Assets\Scripts\DudeSpawner.cs" />
      <Compile Include="Assets\Scripts\MGFlashCleanUp.cs" />
      <Compile Include="Assets\Scripts\MachineGunFire.cs" />
      <Compile Include="Assets\Scripts\TankMovement.cs" />
+     <Compile Include="Assets\Scripts\unitStats.cs" />
      <None Include="Assets\Shaders\AlphaSelfIllum2.shader" />
      <None Include="Assets\Shaders\AlphaSelfIllum.shader" />
   </ItemGroup>

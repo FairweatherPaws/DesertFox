@@ -5,13 +5,14 @@ public class BulletFlight : MonoBehaviour {
 	
 	private float lifeSpan = 5f;
 	public GameObject cannon;
-	public float angle;
+	public float angle, damage;
 	
 	// Use this for initialization
 	
 	void Awake () {
 		this.rigidbody.AddRelativeForce(700,0,0);
-		
+		if (rigidbody.mass < 1) {damage = 1;}
+		else {damage = 10;}
 	}
 	
 	void Start () {
@@ -28,8 +29,12 @@ public class BulletFlight : MonoBehaviour {
 	void OnTriggerEnter (Collider collDetect) {
 		
 		if (collDetect) {
-			
+
+			unitStats Script1 = collDetect.GetComponent<unitStats>();
+			Script1.myHP -= damage;
+
 			Destroy(this.gameObject);
+
 			
 			// damage dealing here
 			
